@@ -1,0 +1,34 @@
+---
+- name: "provision all"
+  hosts: all
+  become: true
+  tasks:
+    - name: apt update
+      apt:
+        update_cache: yes
+    - name: install wireguard
+      apt:
+        name: [wireguard, resolvconf]
+        state: present
+    - name: install shadowsocks
+      apt:
+        name: [shadowsocks-libev]
+        state: present
+
+- name: "provision gateways"
+  hosts: gateways
+  become: true
+  tasks:
+    - name: install tayga
+      apt:
+        name: [tayga]
+        state: present
+
+- name: "provision office machines"
+  hosts: offices
+  become: true
+  tasks:
+    - name: install wireguard
+      apt:
+        name: wireguard
+        state: present
