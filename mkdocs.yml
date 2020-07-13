@@ -9,10 +9,10 @@ theme:
 extra:
   social:
     - icon: fontawesome/brands/github-alt
-      link: https://github.com/mikaelhg/urlbuilder
+      link: https://github.com/mikaelhg
     - icon: fontawesome/brands/twitter
       link: https://twitter.com/MikaelGueck
 
-repo_name: mikaelhg/urlbuilder
-repo_url: https://github.com/mikaelhg/urlbuilder
+repo_name: mikaelhg/vpn-ipv6
+repo_url: https://github.com/mikaelhg/vpn-ipv6
 edit_uri: ""
