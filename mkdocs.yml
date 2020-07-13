@@ -1,0 +1,18 @@
+site_name: IPv6 VPN
+
+theme:
+  name: material
+  font:
+    text: Roboto
+    code: Roboto Mono
+
+extra:
+  social:
+    - icon: fontawesome/brands/github-alt
+      link: https://github.com/mikaelhg/urlbuilder
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/MikaelGueck
+
+repo_name: mikaelhg/urlbuilder
+repo_url: https://github.com/mikaelhg/urlbuilder
+edit_uri: ""
