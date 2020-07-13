@@ -10,7 +10,15 @@ operating in the `10.x.x.x` and `192.168.x.x` spaces.
 
 [Private IPv6 space, RFC-4193.](https://tools.ietf.org/html/rfc4193)
 
+```plantuml format="svg" classes="uml myDiagram" alt="My super diagram placeholder" title="My super diagram"
+  Goofy ->  MickeyMouse: calls
+  Goofy <-- MickeyMouse: responds
+```
 
+```plantuml format="svg_inline" classes="uml myDiagram" alt="My super diagram placeholder" title="My super diagram"
+  Goofy ->  MickeyMouse: calls
+  Goofy <-- MickeyMouse: responds
+```
 
 ## Local development
 

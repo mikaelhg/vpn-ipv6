@@ -16,3 +16,7 @@ extra:
 repo_name: mikaelhg/vpn-ipv6
 repo_url: https://github.com/mikaelhg/vpn-ipv6
 edit_uri: ""
+
+markdown_extensions:
+  - plantuml_markdown:
+      server: http://www.plantuml.com/plantuml

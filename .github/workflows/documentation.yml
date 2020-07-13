@@ -15,7 +15,7 @@ jobs:
       uses: actions/checkout@v2
       
     - name: mkdocs build
-      uses: "docker://squidfunk/mkdocs-material:5.4.0"
+      uses: "docker://mikaelhg/mkdocs-material-plantuml:latest"
       with:
           args: build
 
