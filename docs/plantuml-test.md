@@ -1,17 +1,39 @@
-# PlantUML integration test
+# PlantUML test
 
-```plantuml format="svg" classes="uml myDiagram" alt="My super diagram placeholder" title="My super diagram"
+```plantuml format="png" classes="uml myDiagram" alt="My super diagram placeholder" title="My super diagram"
   Goofy ->  MickeyMouse: calls
   Goofy <-- MickeyMouse: responds
 ```
 
-```plantuml format="svg_inline" classes="uml myDiagram" alt="My super diagram placeholder" title="My super diagram"
-  Goofy ->  MickeyMouse: calls
-  Goofy <-- MickeyMouse: responds
+```plantuml format="png" classes="uml myDiagram" alt="My super diagram placeholder" title="My super diagram"
+
+Alice -> Bob: Authentication Request
+
+alt successful case
+
+    Bob -> Alice: Authentication Accepted
+
+else some kind of failure
+
+    Bob -> Alice: Authentication Failure
+    group My own label
+    Alice -> Log : Log attack start
+        loop 1000 times
+            Alice -> Bob: DNS Attack
+        end
+    Alice -> Log : Log attack end
+    end
+
+else Another type of failure
+
+   Bob -> Alice: Please repeat
+
+end
+
 ```
 
 ## links
 
-Chatbot: https://github.com/hubotio/hubot
+Chatbot: [https://github.com/hubotio/hubot](https://github.com/hubotio/hubot)
 
-Apps: https://github.com/probot/probot
+Apps: [https://github.com/probot/probot](https://github.com/probot/probot)

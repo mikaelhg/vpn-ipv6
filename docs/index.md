@@ -10,6 +10,39 @@ operating in the `10.x.x.x` and `192.168.x.x` spaces.
 
 [Private IPv6 space, RFC-4193.](https://tools.ietf.org/html/rfc4193)
 
+```plantuml format="png"
+nwdiag {
+  network internet {
+
+      client01 [address = "1.2.3.4"];
+      client02 [address = "2.4.1.2"];
+  }
+  network private {
+      address = "fd8d:407b:d075:8a7e::/64";
+
+      client01 [address = "fd8d:407b:d075:8a7e:0001:0001"];
+      client02 [address = "fd8d:407b:d075:8a7e:0001:0002"];
+      db01;
+      db02;
+  }
+}
+```
+
+### Full network
+
+https://www.ultratools.com/tools/rangeGenerator
+
+```
+Prefix/L: fd
+Global ID: 8d407bd075
+Subnet ID: 8a7e
+Combine/CID: fd8d:407b:d075:8a7e::/64
+IPv6 addresses: fd8d:407b:d075:8a7e::/64:XXXX:XXXX:XXXX:XXXX
+Start Range: fd8d:407b:d075:8a7e:0:0:0:0
+End Range: fd8d:407b:d075:8a7e:ffff:ffff:ffff:ffff
+No. of hosts: 18446744073709551616
+```
+
 ## Local development
 
 [Vagrant](https://www.vagrantup.com/),
