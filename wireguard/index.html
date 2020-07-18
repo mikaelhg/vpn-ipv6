@@ -10,16 +10,16 @@
       
       
       
-      <link rel="shortcut icon" href="/assets/images/favicon.png">
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.4.0">
     
     
       
-        <title>IPv6 VPN</title>
+        <title>Wireguard - IPv6 VPN</title>
       
     
     
-      <link rel="stylesheet" href="/assets/stylesheets/main.fe0cca5b.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.fe0cca5b.min.css">
       
       
     
@@ -48,6 +48,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#wireguard" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -55,7 +60,7 @@
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid" aria-label="Header">
-    <a href="/." title="IPv6 VPN" class="md-header-nav__button md-logo" aria-label="IPv6 VPN">
+    <a href=".." title="IPv6 VPN" class="md-header-nav__button md-logo" aria-label="IPv6 VPN">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -72,7 +77,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              
+              Wireguard
             
           </span>
         </div>
@@ -142,7 +147,7 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/." title="IPv6 VPN" class="md-nav__button md-logo" aria-label="IPv6 VPN">
+    <a href=".." title="IPv6 VPN" class="md-nav__button md-logo" aria-label="IPv6 VPN">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -172,7 +177,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/." title="What and why" class="md-nav__link">
+    <a href=".." title="What and why" class="md-nav__link">
       What and why
     </a>
   </li>
@@ -184,7 +189,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/plantuml-test/" title="PlantUML test" class="md-nav__link">
+    <a href="../plantuml-test/" title="PlantUML test" class="md-nav__link">
       PlantUML test
     </a>
   </li>
@@ -194,11 +199,60 @@
       
       
 
+  
 
-  <li class="md-nav__item">
-    <a href="/wireguard/" title="Wireguard" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Wireguard
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="Wireguard" class="md-nav__link md-nav__link--active">
       Wireguard
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#gateway" class="md-nav__link">
+    gateway
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#home1" class="md-nav__link">
+    home1
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
     
@@ -209,12 +263,87 @@
               </div>
             
             
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#gateway" class="md-nav__link">
+    gateway
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#home1" class="md-nav__link">
+    home1
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
               
-  <h1>404 - Not found</h1>
+                
+                
+                  
+                
+                
+                <h1 id="wireguard">Wireguard</h1>
+<h2 id="gateway"><code>gateway</code></h2>
+<p>/etc/wireguard/wg0.conf:</p>
+<pre><code class="conf">[Interface]
+PrivateKey = GA7JaXAqjG6xKTzBmhB4c2ggqZazZFZt6ywIA3RW6nQ=
+Address = fd8d:407b:d075:8a7e::1/64
+ListenPort = 51820
 
+[Peer]
+# home1
+PublicKey = K+tbD5OWKJeRYGyCFDWigJNieeiz4NRo4Q7BsD+ivwc=
+AllowedIPs = fd8d:407b:d075:8a7e::5/64
+</code></pre>
+
+<p>Note that you'll have to manually add all of the peers to the gateway, 
+if you don't allow automatic adds.</p>
+<h2 id="home1"><code>home1</code></h2>
+<pre><code class="conf">[Interface]
+PrivateKey = WNVoPZ+/OpPmId9x6RnCBWDbQ/vXaNgHpYyITEa9QU8=
+Address = fd8d:407b:d075:8a7e::5/64
+
+[Peer]
+# gateway
+PublicKey = pl1LI/XQpwQfPmzGN7Xclidsr34W9CGVAc4plbzmg0o=
+Endpoint = 10.200.1.10:51820
+AllowedIPs = fd8d:407b:d075:8a7e::/64
+</code></pre>
+
+<p>So, on the client, we're setting our VPN IP explicitly in the Interface,
+and the AllowedIPs in the Peer section means that we allow traffic from
+those IPs to cross from the VPN to our machine.</p>
+                
+              
               
                 
 
@@ -227,6 +356,27 @@
       
         
 <footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../plantuml-test/" title="PlantUML test" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                PlantUML test
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
+    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -266,15 +416,15 @@
       
     </div>
     
-      <script src="/assets/javascripts/vendor.d710d30a.min.js"></script>
-      <script src="/assets/javascripts/bundle.b39636ac.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      <script src="../assets/javascripts/vendor.d710d30a.min.js"></script>
+      <script src="../assets/javascripts/bundle.b39636ac.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
       
       <script>
         app = initialize({
-          base: "/",
+          base: "..",
           features: [],
           search: Object.assign({
-            worker: "/assets/javascripts/worker/search.a68abb33.min.js"
+            worker: "../assets/javascripts/worker/search.a68abb33.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>
