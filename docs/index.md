@@ -73,3 +73,7 @@ WireGuard connects VPN clients and VPN servers.
 ShadowSocks provides a TCP 443 connection for WireGuard.
 
 TAYGA provides NAT64 services for connections from the VPN to the outside world.
+
+## Tools to investigate
+
+https://github.com/DNSCrypt/dnscrypt-proxy

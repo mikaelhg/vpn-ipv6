@@ -1,5 +1,8 @@
 # Wireguard
 
+Of course, these keys aren't actually used anywhere, they're just for this
+local demo, and can be found from the actual repo as well.
+
 ## `gateway`
 
 /etc/wireguard/wg0.conf:
@@ -18,6 +21,10 @@ AllowedIPs = fd8d:407b:d075:8a7e::5/64
 
 Note that you'll have to manually add all of the peers to the gateway, 
 if you don't allow automatic adds.
+
+In the Peer section for `home1`, we're explicitly saying that we only
+allow traffic from that IP to cross from the VPN link to our direction,
+even if the client tried to route traffic from other IPs through the link.
 
 ## `home1`
 
