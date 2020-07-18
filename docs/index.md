@@ -6,6 +6,14 @@ with services such as secure DNS and NAT64.
 IPv6 because I've seen various disasters relating to IPv4 corporate networks
 operating in the `10.x.x.x` and `192.168.x.x` spaces.
 
+## How to reproduce locally
+
+1. Install VirtualBox and Vagrant
+
+2. `vagrant up`
+
+3. `vagrant ssh home1`, `ping fd8d:407b:d075:8a7e::1` and `sudo wg show`
+
 ## Network space
 
 [Private IPv6 space, RFC-4193.](https://tools.ietf.org/html/rfc4193)
@@ -13,21 +21,20 @@ operating in the `10.x.x.x` and `192.168.x.x` spaces.
 ```plantuml format="png"
 nwdiag {
   network internet {
-      client01 [address = "1.2.3.4"];
-      client02 [address = "2.4.1.2"];
+      gateway [address = "5.5.5.5"];
+      home1 [address = "1.2.3.4"];
+      office1 [address = "2.4.1.2"];
   }
   network private {
       address = "fd8d:407b:d075:8a7e::/64";
-
-      client01 [address = "fd8d:407b:d075:8a7e:0001:0001"];
-      client02 [address = "fd8d:407b:d075:8a7e:0001:0002"];
-      db01;
-      db02;
+      gateway [address = "fd8d:407b:d075:8a7e::1"];
+      home1 [address = "fd8d:407b:d075:8a7e::5"];
+      office1 [address = "fd8d:407b:d075:8a7e::6"];
   }
 }
 ```
 
-### Full network
+### Chosen IPv6 private space
 
 https://www.ultratools.com/tools/rangeGenerator
 

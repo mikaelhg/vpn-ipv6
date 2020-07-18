@@ -56,6 +56,12 @@
         group: root
         mode: 0600
 
+    - name: enable wg-quick@wg0
+      systemd:
+        name: "wg-quick@wg0"
+        state: started
+        enabled: yes
+
 - name: "provision home machines"
   hosts: homes
   become: true
@@ -68,6 +74,12 @@
         owner: root
         group: root
         mode: 0600
+
+    - name: enable wg-quick@wg0
+      systemd:
+        name: "wg-quick@wg0"
+        state: started
+        enabled: yes
 
 - name: "provision office machines"
   hosts: offices
