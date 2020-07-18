@@ -13,7 +13,6 @@ operating in the `10.x.x.x` and `192.168.x.x` spaces.
 ```plantuml format="png"
 nwdiag {
   network internet {
-
       client01 [address = "1.2.3.4"];
       client02 [address = "2.4.1.2"];
   }

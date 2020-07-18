@@ -3,26 +3,71 @@
   hosts: all
   become: true
   tasks:
-    - name: apt update
+
+    - name: apt update dist-upgrade
       apt:
         update_cache: yes
-    - name: install wireguard
+        upgrade: dist
+
+    - name: install wireguard and network stuff
       apt:
-        name: [wireguard, resolvconf]
-        state: present
+        name: [wireguard, resolvconf, nftables, net-tools]
+        state: latest
+
     - name: install shadowsocks
       apt:
         name: [shadowsocks-libev]
+        state: latest
+
+    - name: Add user
+      user:
+        name: mikael
+        shell: /bin/bash
+
+    - name: Sudoers
+      copy:
+        dest: /etc/sudoers.d/mikael
+        owner: root
+        group: root
+        content: |
+          mikael ALL=(ALL) NOPASSWD: ALL
+
+    - name: Set authorized key
+      authorized_key:
+        user: mikael
         state: present
+        key: "{{ lookup('file', '/home/mikael/.ssh/id_rsa.pub') }}"
 
 - name: "provision gateways"
   hosts: gateways
   become: true
   tasks:
+
     - name: install tayga
       apt:
         name: [tayga]
         state: present
+
+    - name: Wireguard configuration
+      template:
+        src: ./conf/gateway-wg0.conf
+        dest: /etc/wireguard/wg0.conf
+        owner: root
+        group: root
+        mode: 0600
+
+- name: "provision home machines"
+  hosts: homes
+  become: true
+  tasks:
+
+    - name: Wireguard configuration
+      template:
+        src: ./conf/home1-wg0.conf
+        dest: /etc/wireguard/wg0.conf
+        owner: root
+        group: root
+        mode: 0600
 
 - name: "provision office machines"
   hosts: offices

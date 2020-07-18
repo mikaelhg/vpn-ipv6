@@ -1,11 +1,6 @@
 # PlantUML test
 
-```plantuml format="png" classes="uml myDiagram" alt="My super diagram placeholder" title="My super diagram"
-  Goofy ->  MickeyMouse: calls
-  Goofy <-- MickeyMouse: responds
-```
-
-```plantuml format="png" classes="uml myDiagram" alt="My super diagram placeholder" title="My super diagram"
+```plantuml format="png"
 
 Alice -> Bob: Authentication Request
 
