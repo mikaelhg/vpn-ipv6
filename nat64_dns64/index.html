@@ -10,16 +10,16 @@
       
       
       
-      <link rel="shortcut icon" href="/assets/images/favicon.png">
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.4.0">
     
     
       
-        <title>IPv6 VPN</title>
+        <title>NAT64 and DNS64 - IPv6 VPN</title>
       
     
     
-      <link rel="stylesheet" href="/assets/stylesheets/main.fe0cca5b.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.fe0cca5b.min.css">
       
       
     
@@ -48,6 +48,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#nat64-and-dns64" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -55,7 +60,7 @@
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid" aria-label="Header">
-    <a href="/." title="IPv6 VPN" class="md-header-nav__button md-logo" aria-label="IPv6 VPN">
+    <a href=".." title="IPv6 VPN" class="md-header-nav__button md-logo" aria-label="IPv6 VPN">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -72,7 +77,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              
+              NAT64 and DNS64
             
           </span>
         </div>
@@ -142,7 +147,7 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/." title="IPv6 VPN" class="md-nav__button md-logo" aria-label="IPv6 VPN">
+    <a href=".." title="IPv6 VPN" class="md-nav__button md-logo" aria-label="IPv6 VPN">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -172,7 +177,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/." title="What and why" class="md-nav__link">
+    <a href=".." title="What and why" class="md-nav__link">
       What and why
     </a>
   </li>
@@ -182,11 +187,20 @@
       
       
 
+  
 
-  <li class="md-nav__item">
-    <a href="/nat64_dns64/" title="NAT64 and DNS64" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+    <a href="./" title="NAT64 and DNS64" class="md-nav__link md-nav__link--active">
       NAT64 and DNS64
     </a>
+    
   </li>
 
     
@@ -196,7 +210,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/plantuml-test/" title="PlantUML test" class="md-nav__link">
+    <a href="../plantuml-test/" title="PlantUML test" class="md-nav__link">
       PlantUML test
     </a>
   </li>
@@ -208,7 +222,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/wireguard/" title="Wireguard" class="md-nav__link">
+    <a href="../wireguard/" title="Wireguard" class="md-nav__link">
       Wireguard
     </a>
   </li>
@@ -221,12 +235,54 @@
               </div>
             
             
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
               
-  <h1>404 - Not found</h1>
-
+                
+                
+                  
+                
+                
+                <h1 id="nat64-and-dns64">NAT64 and DNS64</h1>
+<p>Let's say that your mobile phone is in a IPv6-only network, only has an IPv6
+address and IPv6 routing. But you want to connect to some random web service
+which only has an IPv4 address. How does this work?</p>
+<p>Well, in your IPv6-only network, you have a special DNS server which resolves
+the queries of your IPv6-only devices, such as your mobile phone.</p>
+<p>When you type "www.example.com" in your browser, (and unbeknownst to you,
+behind the scenes "www.example.com" in only has the IPv4 address 1.2.3.4,)
+your browser takes that name, and makes a DNS query to first resolve it
+into a IP address.</p>
+<p>In our IPv6-only network, we have a special DNS64 proxy, which forwards
+that query to your ISP's normal DNS server, which responds with 1.2.3.4.
+However, your special DNS64 proxy now takes the 1.2.3.4 and appends it
+to a IPv6 address prefix which you've set up for this purpose.</p>
+<p>Let's say, we translate 1.2.3.4 to XXXX:XXXX:XXXX:XXXX:0102:0304 this way.</p>
+<p>Now your browser thinks that "www.example.com" is located at the IPv6
+address XXXX:XXXX:XXXX:XXXX:0102:0304, and therefore tries to open a TCP
+connection to that IP, port 443 as usual.</p>
+<p>The other part of this equation is a special NAT64 router, which sits between 
+the IPv6 worlds and the IPv4 worlds, and can transform a IPv6 packet destinied
+to XXXX:XXXX:XXXX:XXXX:0102:0304 into a IPv4 packet destinied to 1.2.3.4,
+as well as perform the usual NAT tricks.</p>
+                
+              
               
                 
 
@@ -239,6 +295,41 @@
       
         
 <footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href=".." title="What and why" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                What and why
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../plantuml-test/" title="PlantUML test" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                PlantUML test
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -278,15 +369,15 @@
       
     </div>
     
-      <script src="/assets/javascripts/vendor.d710d30a.min.js"></script>
-      <script src="/assets/javascripts/bundle.b39636ac.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      <script src="../assets/javascripts/vendor.d710d30a.min.js"></script>
+      <script src="../assets/javascripts/bundle.b39636ac.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
       
       <script>
         app = initialize({
-          base: "/",
+          base: "..",
           features: [],
           search: Object.assign({
-            worker: "/assets/javascripts/worker/search.a68abb33.min.js"
+            worker: "../assets/javascripts/worker/search.a68abb33.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>
