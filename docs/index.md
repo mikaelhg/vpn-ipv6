@@ -1,18 +1,25 @@
 # What and why
 
-The objective is to set up a IPv6-only "corporate intranet" type VPN,
+The objective is to set up a demonstration IPv6-only "corporate intranet" type VPN,
 with services such as secure DNS and NAT64.
 
-IPv6 because I've seen various disasters relating to IPv4 corporate networks
-operating in the `10.x.x.x` and `192.168.x.x` spaces.
+IPv6-only, because I've seen various disasters relating to IPv4 corporate networks
+operating in the `10.x.x.x` and `192.168.x.x` spaces, which many ISP devices in
+people's homes also use... and merging companies using the same spaces...
 
-## How to reproduce locally
+## How to reproduce the demonstration locally
+
+In the `Vagrantfile`, you can find a description of the virtual machines which are
+automatically created by Vagrant for this demonstration, as well as their local IP
+addresses, and memory and CPU reservations, which you might want to tweak if necessary.
 
 1. Install VirtualBox and Vagrant
 
 2. `vagrant up`
 
 3. `vagrant ssh home1`, `ping fd8d:407b:d075:8a7e::1` and `sudo wg show`
+
+4. `vagrant ssh gateway`, `ping fd8d:407b:d075:8a7e::5` and `sudo wg show`
 
 ## Network space
 
