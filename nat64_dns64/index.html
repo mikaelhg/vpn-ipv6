@@ -275,18 +275,20 @@ that query to your ISP's normal DNS server, which responds with 1.2.3.4.</p>
 to a IPv6 address prefix which you've set up for this purpose.</p>
 <p>Let's say, we translate 1.2.3.4 to XXXX:XXXX:XXXX:XXXX:0102:0304 this way.</p>
 <p>Now your browser thinks that "www.example.com" is located at the IPv6
-address XXXX:XXXX:XXXX:XXXX:0102:0304, and therefore tries to open a TCP
+address XXXX:XXXX:XXXX:XXXX:0102:0304, and therefore tries to open a TCPv6
 connection to that IP, port 443 as usual.</p>
 <p>The other part of this equation is a special NAT64 gateway, which sits between 
-the IPv6 worlds and the IPv4 worlds, and can transform a IPv6 packet destinied
+the IPv6 world and the IPv4 world, and can transform a IPv6 packet destinied
 to XXXX:XXXX:XXXX:XXXX:0102:0304 into a IPv4 packet destinied to 1.2.3.4,
 as well as perform the usual NAT tricks.</p>
-<p>You have to set up your network to route all packets which are destinied
+<p>You have to set up your network to route all packets which come from your
+IPv6-only local devices such as your mobile phone, and which are destinied 
 to any XXXX:XXXX:XXXX:XXXX:: address, through that NAT64 gateway.</p>
-<p>This way, the NAT64 router translates from IPv6 to IPv4, and from IPv4 to IPv6,
-using the address spaces which you've reserved for this use, as well as keep
-track of every TCP connection which has been opened from the IPv6 side to the
-IPv4 side. I don't know how UDP is handled, as it's stateless.</p>
+<p>This way, the NAT64 gateway translates packet addresses from IPv6 to IPv4, 
+and from IPv4 to IPv6, using the address spaces which you've reserved for
+this use, as well as keep track of every TCP connection which has been 
+opened from the IPv6 side to the IPv4 side. </p>
+<p>I don't know how UDP is handled, as it's stateless.</p>
                 
               
               
