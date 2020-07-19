@@ -212,8 +212,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#how-to-reproduce-locally" class="md-nav__link">
-    How to reproduce locally
+  <a href="#how-to-reproduce-the-demonstration-locally" class="md-nav__link">
+    How to reproduce the demonstration locally
   </a>
   
 </li>
@@ -328,8 +328,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#how-to-reproduce-locally" class="md-nav__link">
-    How to reproduce locally
+  <a href="#how-to-reproduce-the-demonstration-locally" class="md-nav__link">
+    How to reproduce the demonstration locally
   </a>
   
 </li>
@@ -392,11 +392,15 @@
                 
                 
                 <h1 id="what-and-why">What and why</h1>
-<p>The objective is to set up a IPv6-only "corporate intranet" type VPN,
+<p>The objective is to set up a demonstration IPv6-only "corporate intranet" type VPN,
 with services such as secure DNS and NAT64.</p>
-<p>IPv6 because I've seen various disasters relating to IPv4 corporate networks
-operating in the <code>10.x.x.x</code> and <code>192.168.x.x</code> spaces.</p>
-<h2 id="how-to-reproduce-locally">How to reproduce locally</h2>
+<p>IPv6-only, because I've seen various disasters relating to IPv4 corporate networks
+operating in the <code>10.x.x.x</code> and <code>192.168.x.x</code> spaces, which many ISP devices in
+people's homes also use... and merging companies using the same spaces...</p>
+<h2 id="how-to-reproduce-the-demonstration-locally">How to reproduce the demonstration locally</h2>
+<p>In the <code>Vagrantfile</code>, you can find a description of the virtual machines which are
+automatically created by Vagrant for this demonstration, as well as their local IP
+addresses, and memory and CPU reservations, which you might want to tweak if necessary.</p>
 <ol>
 <li>
 <p>Install VirtualBox and Vagrant</p>
@@ -406,6 +410,9 @@ operating in the <code>10.x.x.x</code> and <code>192.168.x.x</code> spaces.</p>
 </li>
 <li>
 <p><code>vagrant ssh home1</code>, <code>ping fd8d:407b:d075:8a7e::1</code> and <code>sudo wg show</code></p>
+</li>
+<li>
+<p><code>vagrant ssh gateway</code>, <code>ping fd8d:407b:d075:8a7e::5</code> and <code>sudo wg show</code></p>
 </li>
 </ol>
 <h2 id="network-space">Network space</h2>
