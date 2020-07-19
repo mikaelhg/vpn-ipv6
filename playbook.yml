@@ -19,6 +19,11 @@
         name: [shadowsocks-libev]
         state: latest
 
+    - name: remove ufw
+      apt:
+        name: [ufw]
+        state: absent
+
     - name: Add user
       user:
         name: mikael
@@ -61,6 +66,12 @@
         name: "wg-quick@wg0"
         state: started
         enabled: yes
+
+    - name: install bind9
+      apt:
+        name: [bind9]
+        state: latest
+
 
 - name: "provision home machines"
   hosts: homes
