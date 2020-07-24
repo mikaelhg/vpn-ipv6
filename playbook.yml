@@ -67,10 +67,18 @@
         state: started
         enabled: yes
 
-    - name: install bind9
-      apt:
-        name: [bind9]
-        state: latest
+    - name: enable IPv6 forwarding
+      copy:
+        dest: /etc/sysctl.d/99-wireguard-route.conf
+        owner: root
+        group: root
+        content: |
+          net.ipv6.conf.all.forwarding=1
+
+#    - name: install bind9
+#      apt:
+#        name: [bind9]
+#        state: latest
 
 
 - name: "provision home machines"
