@@ -16,8 +16,12 @@ ListenPort = 51820
 [Peer]
 # home1
 PublicKey = K+tbD5OWKJeRYGyCFDWigJNieeiz4NRo4Q7BsD+ivwc=
-AllowedIPs = fd8d:407b:d075:8a7e::5/64
+AllowedIPs = fd8d:407b:d075:8a7e::5/128
 ```
+
+See the difference in the `home1` `AllowedIPs` between the gateway and
+the client? On the gateway, we're saying `/128` and on the peer we're
+saying `/64`.
 
 Note that you'll have to manually add all of the peers to the gateway, 
 if you don't allow automatic adds.
