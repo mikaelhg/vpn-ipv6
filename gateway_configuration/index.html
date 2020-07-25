@@ -15,7 +15,7 @@
     
     
       
-        <title>NAT64 and DNS64 - IPv6 VPN</title>
+        <title>Other gateway configuration - IPv6 VPN</title>
       
     
     
@@ -49,7 +49,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#nat64-and-dns64" class="md-skip">
+        <a href="#other-gateway-configuration" class="md-skip">
           Skip to content
         </a>
       
@@ -77,7 +77,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              NAT64 and DNS64
+              Other gateway configuration
             
           </span>
         </div>
@@ -187,18 +187,6 @@
       
       
 
-
-  <li class="md-nav__item">
-    <a href="../gateway_configuration/" title="Other gateway configuration" class="md-nav__link">
-      Other gateway configuration
-    </a>
-  </li>
-
-    
-      
-      
-      
-
   
 
 
@@ -209,10 +197,22 @@
       
     
     
-    <a href="./" title="NAT64 and DNS64" class="md-nav__link md-nav__link--active">
-      NAT64 and DNS64
+    <a href="./" title="Other gateway configuration" class="md-nav__link md-nav__link--active">
+      Other gateway configuration
     </a>
     
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../nat64_dns64/" title="NAT64 and DNS64" class="md-nav__link">
+      NAT64 and DNS64
+    </a>
   </li>
 
     
@@ -271,36 +271,12 @@
                   
                 
                 
-                <h1 id="nat64-and-dns64">NAT64 and DNS64</h1>
-<p>Let's say that your mobile phone is in a IPv6-only network, only has an IPv6
-address and IPv6 routing. But you want to connect to some random web service
-which only has an IPv4 address. How does this work?</p>
-<p>Well, in your IPv6-only network, you have a special DNS server which resolves
-the queries of your IPv6-only devices, such as your mobile phone.</p>
-<p>When you type "www.example.com" in your browser, (and unbeknownst to you,
-behind the scenes "www.example.com" only has the IPv4 address 1.2.3.4,)
-your browser takes that name, and makes a DNS query to first resolve it
-into a IP address.</p>
-<p>In our IPv6-only network, we have a special DNS64 proxy, which forwards
-that query to your ISP's normal DNS server, which responds with 1.2.3.4.</p>
-<p>However, your special DNS64 proxy now takes the 1.2.3.4 and appends it
-to a IPv6 address prefix which you've set up for this purpose.</p>
-<p>Let's say, we translate 1.2.3.4 to XXXX:XXXX:XXXX:XXXX:0102:0304 this way.</p>
-<p>Now your browser thinks that "www.example.com" is located at the IPv6
-address XXXX:XXXX:XXXX:XXXX:0102:0304, and therefore tries to open a TCPv6
-connection to that IP, port 443 as usual.</p>
-<p>The other part of this equation is a special NAT64 gateway, which sits between 
-the IPv6 world and the IPv4 world, and can transform a IPv6 packet destinied
-to XXXX:XXXX:XXXX:XXXX:0102:0304 into a IPv4 packet destinied to 1.2.3.4,
-as well as perform the usual NAT tricks.</p>
-<p>You have to set up your network to route all packets which come from your
-IPv6-only local devices such as your mobile phone, and which are destinied 
-to any XXXX:XXXX:XXXX:XXXX:: address, through that NAT64 gateway.</p>
-<p>This way, the NAT64 gateway translates packet addresses from IPv6 to IPv4, 
-and from IPv4 to IPv6, using the address spaces which you've reserved for
-this use, as well as keep track of every TCP connection which has been 
-opened from the IPv6 side to the IPv4 side. </p>
-<p>I don't know how UDP is handled, as it's stateless.</p>
+                <h1 id="other-gateway-configuration">Other gateway configuration</h1>
+<p>We want the gateway to be able to route traffic between VPN clients, so we need to tell the
+kernel that this is what we want.</p>
+<p>/etc/sysctl.d/99-wireguard-route.conf:</p>
+<pre><code>net.ipv6.conf.all.forwarding=1
+</code></pre>
                 
               
               
@@ -319,7 +295,7 @@ opened from the IPv6 side to the IPv4 side. </p>
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../gateway_configuration/" title="Other gateway configuration" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href=".." title="What and why" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -328,19 +304,19 @@ opened from the IPv6 side to the IPv4 side. </p>
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Other gateway configuration
+                What and why
               </div>
             </div>
           </a>
         
         
-          <a href="../plantuml-test/" title="PlantUML test" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../nat64_dns64/" title="NAT64 and DNS64" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                PlantUML test
+                NAT64 and DNS64
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
