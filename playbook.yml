@@ -76,11 +76,43 @@
         state: present
         reload: yes
 
-#    - name: install bind9
-#      apt:
-#        name: [bind9]
-#        state: latest
+    - name: Download CoreDNS installation package
+      get_url:
+        dest: /tmp
+        url: "https://github.com/coredns/coredns/releases/download/v1.7.0/coredns_1.7.0_linux_amd64.tgz"
+        checksum: "sha256:3cb68051ef67a9c747dad20d02ecd4f937f0002a0d053dd557791a1ff4185c4a"
 
+    - name: Install CoreDNS binary from GitHub
+      unarchive:
+        src: /tmp/coredns_1.7.0_linux_amd64.tgz
+        dest: /usr/local/bin
+        remote_src: yes
+        owner: root
+        group: root
+
+    - name: Set up CoreDNS with systemd
+      template:
+        src: ./conf/coredns-internal.service
+        dest: /etc/systemd/system/coredns-internal.service
+        owner: root
+        group: root
+        mode: "0644"
+
+    - name: CoreDNS configuration, main file
+      template:
+        src: ./conf/Corefile
+        dest: /etc/Corefile
+        owner: root
+        group: root
+        mode: 0600
+
+    - name: CoreDNS configuration, hosts
+      template:
+        src: ./conf/poc.vpn.hosts
+        dest: /etc/poc.vpn.hosts
+        owner: root
+        group: root
+        mode: 0600
 
 - name: "provision home machines"
   hosts: homes

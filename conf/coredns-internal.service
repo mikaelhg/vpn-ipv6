@@ -1,0 +1,9 @@
+[Unit]
+Description=VPN internal DNS service from CoreDNS.
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/coredns -conf /etc/Corefile
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,11 @@
+poc.vpn {
+  bind fd8d:407b:d075:8a7e::1
+  hosts poc.vpn.hosts
+  log
+}
+
+. {
+  bind fd8d:407b:d075:8a7e::1
+  forward . 8.8.8.8
+  log
+}

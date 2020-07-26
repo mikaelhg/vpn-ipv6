@@ -39,3 +39,34 @@ this use, as well as keep track of every TCP connection which has been
 opened from the IPv6 side to the IPv4 side. 
 
 I don't know how UDP is handled, as it's stateless.
+
+## CoreDNS for DNS64
+
+It looks like the by far easiest way to implement DNS64 as well as an
+VPN-internal name server, will be to use CoreDNS, and install it with
+Ansible from their GitHub binary releases.
+
+The CoreDNS configuration format seems pretty simple.
+
+/etc/Corefile
+
+```
+poc.vpn {
+  bind fd8d:407b:d075:8a7e::1
+  hosts poc.vpn.hosts
+  log
+}
+
+. {
+  bind fd8d:407b:d075:8a7e::1
+  forward . 8.8.8.8
+  log
+}
+```
+
+/etc/poc.vpn.hosts
+
+```
+fd8d:407b:d075:8a7e::1  gateway.poc.vpn
+fd8d:407b:d075:8a7e::5  home1.poc.vpn
+```
