@@ -209,9 +209,42 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        NAT64 and DNS64
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
+    
     <a href="./" title="NAT64 and DNS64" class="md-nav__link md-nav__link--active">
       NAT64 and DNS64
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#coredns-for-dns64" class="md-nav__link">
+    CoreDNS for DNS64
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -257,6 +290,23 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#coredns-for-dns64" class="md-nav__link">
+    CoreDNS for DNS64
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -301,6 +351,29 @@ and from IPv4 to IPv6, using the address spaces which you've reserved for
 this use, as well as keep track of every TCP connection which has been 
 opened from the IPv6 side to the IPv4 side. </p>
 <p>I don't know how UDP is handled, as it's stateless.</p>
+<h2 id="coredns-for-dns64">CoreDNS for DNS64</h2>
+<p>It looks like the by far easiest way to implement DNS64 as well as an
+VPN-internal name server, will be to use CoreDNS, and install it with
+Ansible from their GitHub binary releases.</p>
+<p>The CoreDNS configuration format seems pretty simple.</p>
+<p>/etc/Corefile</p>
+<pre><code>poc.vpn {
+  bind fd8d:407b:d075:8a7e::1
+  hosts poc.vpn.hosts
+  log
+}
+
+. {
+  bind fd8d:407b:d075:8a7e::1
+  forward . 8.8.8.8
+  log
+}
+</code></pre>
+
+<p>/etc/poc.vpn.hosts</p>
+<pre><code>fd8d:407b:d075:8a7e::1  gateway.poc.vpn
+fd8d:407b:d075:8a7e::5  home1.poc.vpn
+</code></pre>
                 
               
               
