@@ -73,13 +73,16 @@ Boxes:
 
 [WireGuard](https://www.wireguard.com/), 
 [ShadowSocks](https://shadowsocks.org/), 
-[TAYGA](http://www.litech.org/tayga/).
+[TAYGA](http://www.litech.org/tayga/),
+[CoreDNS](https://coredns.io/).
 
 WireGuard connects VPN clients and VPN servers.
 
 ShadowSocks provides a TCP 443 connection for WireGuard.
 
 TAYGA provides NAT64 services for connections from the VPN to the outside world.
+
+CoreDNS provides DNS64 services and internal DNS for the VPN hosts.
 
 ## Tools to investigate
 

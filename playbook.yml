@@ -90,6 +90,12 @@
         owner: root
         group: root
 
+#    - name: Download DNSCrypt-proxy
+#      get_url:
+#        dest: /tmp
+#        url: "https://github.com/DNSCrypt/dnscrypt-proxy/releases/download/2.0.44/dnscrypt-proxy-linux_x86_64-2.0.44.tar.gz"
+#        checksum: "sha256:37ee2c2bbaeb2c3195d903334182c2c4c101560e90e805816b68c2b5aa85845a"
+
     - name: Set up CoreDNS with systemd
       template:
         src: ./conf/coredns-internal.service
