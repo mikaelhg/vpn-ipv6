@@ -16,7 +16,7 @@ else some kind of failure
         loop 1000 times
             Alice -> Bob: DNS Attack
         end
-    Alice -> Log : Log attack end
+    Alice -> Log : Log attacks end
     end
 
 else Another type of failure
