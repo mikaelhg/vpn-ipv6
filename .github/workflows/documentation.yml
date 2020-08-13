@@ -17,10 +17,13 @@ jobs:
     - name: git checkout
       uses: actions/checkout@v2
       
+#    - name: mkdocs build
+#      uses: "docker://mikaelhg/mkdocs-material-plantuml:latest"
+#      with:
+#          args: build
+
     - name: mkdocs build
-      uses: "docker://mikaelhg/mkdocs-material-plantuml:latest"
-      with:
-          args: build
+      uses: mikaelhg/mkdocs-material-plantuml@b1
 
     - name: github pages deploy
       uses: peaceiris/actions-gh-pages@v3

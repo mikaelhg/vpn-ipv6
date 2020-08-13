@@ -71,8 +71,8 @@ Boxes:
 
 ## VPN tools
 
-[WireGuard](https://www.wireguard.com/), 
-[ShadowSocks](https://shadowsocks.org/), 
+[WireGuard](https://www.wireguard.com/),
+[ShadowSocks](https://shadowsocks.org/),
 [TAYGA](http://www.litech.org/tayga/),
 [CoreDNS](https://coredns.io/).
 
@@ -85,5 +85,9 @@ TAYGA provides NAT64 services for connections from the VPN to the outside world.
 CoreDNS provides DNS64 services and internal DNS for the VPN hosts.
 
 ## Tools to investigate
+
+https://xdeb.org/post/2019/09/26/setting-up-a-server-firewall-with-nftables-that-support-wireguard-vpn/
+
+https://www.wrapsix.org/
 
 https://github.com/DNSCrypt/dnscrypt-proxy
