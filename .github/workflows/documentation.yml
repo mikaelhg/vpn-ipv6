@@ -17,12 +17,13 @@ jobs:
     - name: git checkout
       uses: actions/checkout@v2
 
-    - name: Log into registry
-      run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
+    # - name: Log into registry
+    #   run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
 
     - name: mkdocs build
       # uses: "docker://mikaelhg/mkdocs-material-plantuml:latest"
-      uses: 'docker://docker.pkg.github.com/mikaelhg/mkdocs-material-plantuml/mkdocs-material-plantuml:latest'
+      # uses: 'docker://docker.pkg.github.com/mikaelhg/mkdocs-material-plantuml/mkdocs-material-plantuml:latest'
+      uses: 'mikaelhg/mkdocs-material-plantuml@v1'
       with:
           args: build
 
