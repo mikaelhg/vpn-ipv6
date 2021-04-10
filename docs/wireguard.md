@@ -3,6 +3,12 @@
 Of course, these keys aren't actually used anywhere, they're just for this
 local demo, and can be found from the actual repo as well.
 
+Keys are generated with the command 
+
+```
+wg genkey | tee privatekey | wg pubkey > publickey
+```
+
 ## `gateway`
 
 /etc/wireguard/wg0.conf:

@@ -18,7 +18,8 @@ jobs:
       uses: actions/checkout@v2
 
     - name: mkdocs build
-      uses: "docker://mikaelhg/mkdocs-material-plantuml:latest"
+      # uses: "docker://mikaelhg/mkdocs-material-plantuml:latest"
+      uses: 'docker://docker.pkg.github.com/mikaelhg/mkdocs-material-plantuml/mkdocs-material-plantuml:latest'
       with:
           args: build
 

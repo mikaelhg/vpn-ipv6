@@ -9,3 +9,14 @@ https://rtodto.net/how-do-nat64-and-dns64-work-in-ipv6-world-and-srx-config/
 http://www.litech.org/tayga/
 
 https://developers.google.com/speed/public-dns/docs/dns64
+
+## Documentation
+
+Develop the documentation locally with:
+
+```
+docker run --rm -it -p 8000:8000 -v ${PWD}:/docs mikaelhg/mkdocs-material-plantuml
+
+docker run --rm -it -u 1000 -p 8000:8000 -v ${PWD}:/docs:ro \
+    mikaelhg/mkdocs-material-plantuml serve -a 0.0.0.0:8000
+```

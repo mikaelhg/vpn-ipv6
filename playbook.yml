@@ -43,6 +43,12 @@
         state: present
         key: "{{ lookup('file', '/home/mikael/.ssh/id_rsa.pub') }}"
 
+  handlers:
+    - name: restart ssh
+      service:
+        name: ssh
+        state: restarted
+
 - name: "provision gateways"
   hosts: gateways
   become: true
