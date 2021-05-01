@@ -21,7 +21,7 @@ else some kind of failure
 
 else Another type of failure
 
-   Bob -> Alice: Please repeat
+   Bob -> Alice: Please repeat it
 
 end
 
