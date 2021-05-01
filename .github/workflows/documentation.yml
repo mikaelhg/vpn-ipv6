@@ -22,8 +22,8 @@ jobs:
 
     - name: mkdocs build
       # uses: "docker://mikaelhg/mkdocs-material-plantuml:latest"
-      # uses: 'docker://docker.pkg.github.com/mikaelhg/mkdocs-material-plantuml/mkdocs-material-plantuml:latest'
-      uses: 'mikaelhg/mkdocs-material-plantuml@v1'
+      uses: 'docker://docker.pkg.github.com/mikaelhg/mkdocs-material-plantuml/mkdocs-material-plantuml:latest'
+      # uses: 'mikaelhg/mkdocs-material-plantuml@v1'
       with:
           args: build
 
