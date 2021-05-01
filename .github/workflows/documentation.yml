@@ -14,20 +14,17 @@ jobs:
 
     steps:
 
-    - name: 1. git checkout
+    - name: git checkout
       uses: actions/checkout@v2
 
-    - name: 2. Log into registry
-      run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login gchr.io -u ${{ github.actor }} --password-stdin
-
-    - name: 3. mkdocs build
+    - name: mkdocs build
       # uses: "docker://mikaelhg/mkdocs-material-plantuml:latest"
       uses: 'docker://ghcr.io/mikaelhg/mkdocs-material-plantuml:latest'
       # uses: 'mikaelhg/mkdocs-material-plantuml@v1'
       with:
           args: build
 
-    - name: 4. github pages deploy
+    - name: github pages deploy
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
