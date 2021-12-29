@@ -29,7 +29,7 @@ end
 
 /* Oops 2! */
 
-## links
+## ChatOps and GitOps links
 
 Chatbot: [https://github.com/hubotio/hubot](https://github.com/hubotio/hubot)
 
