@@ -33,7 +33,7 @@ jobs:
       id: pages
       uses: actions/configure-pages@v5
     - name: mkdocs build
-      uses: 'docker://ghcr.io/mikaelhg/mkdocs-material-d2:latest'
+      uses: 'docker://ghcr.io/mikaelhg/mkdocs-material-plantuml:latest'
       # uses: 'mikaelhg/mkdocs-material-plantuml@v1'
       with:
           args: build
